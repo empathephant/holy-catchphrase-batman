@@ -22,10 +22,12 @@ if not os.path.isfile("catchphrases.txt"):
         current_episode.close()
     catchphrases.close()
 
-catchphrases = open(catchphrases.txt)
+catchphrases = open("catchphrases.txt")
 phrases = catchphrases.readline()
+print(phrases)
 
 character_entered = input("Type any key to generate an exclamation of surprise, or type \'q\' to quit: ")
 while character_entered != 'q':
     print(random.choice(phrases))
+    character_entered = input("Type any key to get another expression, or type \'q\' to quit: ")
 print("Holy exit, Batman! Goodbye!")

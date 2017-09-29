@@ -1,16 +1,15 @@
 import requests as r
 import os
+import time
+import random
 
 headers = {'user-agent': 'Shanti der Blatter (empathephant@gmail.com)'}
 
 def scrape_season(episode, season):
-    if episode < 10:
-        episode_url = "https://www.springfieldspringfield.co.uk/view_episode_scripts.php?tv-show=batman-1966&episode=s0" + season + "e0" + str(episode_num)
-    else:
-        episode_url = "https://www.springfieldspringfield.co.uk/view_episode_scripts.php?tv-show=batman-1966&episode=s0" + season + "e" ++ str(episode_num)
+    episode_url = "https://www.springfieldspringfield.co.uk/view_episode_scripts.php?tv-show=batman-1966&episode=s" + season.zfill(2) + "e" + str(episode).zfill(2)
     episode_text = r.get(episode_url, headers=headers)
-    filename = "s" + season + 'e' + str(episode) + ".txt"
-    f = open(os.past.join(episodes, filename),"w+")
+    filename = "s" + season + 'e' + str(episode) + ".html"
+    f = open(os.path.join("episodes", filename),"w+")
     f.write(episode_text.text)
     f.close
 
